@@ -66,14 +66,11 @@ while( ! $eof ) {
         ( ! $options->{save_msg_limit} || @messages < $options->{save_msg_limit} ) ) {
         # We cannot use getline, as it doesn't cooperate well with io::select, thus
         # we implement it ourself with recvq buffer and regexp getting line by line
-		$log->INFO( "test0" );
         if( $recvq =~ s/(.*)\n// ) {
-			$log->INFO( "test1" );
             my $line = $1;
             push( @messages, process_line( $line ) );
         }
         elsif( $select->can_read( 0.02 ) ) {
-			$log->INFO( "test2" );
             my $n = sysread( $input_fh, $recvq, 4096, length($recvq) );
             if( $n == 0 ) {
                 $eof = 1;
@@ -315,7 +312,7 @@ sub save_messages {
 
 	my $maxid = 0;
 	my $ua = new LWP::UserAgent;
-	my $request = new HTTP::Request('GET', 'http://127.0.0.1:5984/t4logs/_design/maxid/_view/maxid');
+	my $request = new HTTP::Request('GET', 'http://127.0.0.1:5984/t4logs/_design/base/_view/maxid');
 	my $response = $ua->request($request);
 	if ($response->is_success) {
 		my $content = decode_json( $response->content );

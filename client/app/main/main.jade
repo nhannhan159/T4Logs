@@ -10,10 +10,15 @@ header#banner.hero-unit
   .row
     .col-lg-12
       h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='thing in awesomeThings')
-        li
-          a(href='#', tooltip='{{thing.info}}')
-            | {{thing.name}}
+      table.table.table-striped(st-table='awesomeThings')
+        thead
+          tr
+            th Name
+            th Info
+        tbody
+          tr(ng-repeat='thing in awesomeThings')
+            td {{thing.name}}
+            td {{thing.info}}
 
 footer.footer
   .container
