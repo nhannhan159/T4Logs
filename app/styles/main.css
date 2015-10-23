@@ -81,3 +81,33 @@ body {
     border-bottom: 0;
   }
 }
+
+/*CUSTOM CSS*/
+/*GENERAL*/
+.container {
+  max-width: 900px;
+}
+
+/*-----------------MAIN PAGE-------------*/
+/*Table*/
+table[st-table] .thead{
+  background-color: dimgrey;
+  color: whitesmoke;
+}
+.st-sort-ascent:before{
+  content: '\25B2';
+}
+
+.st-sort-descent:before{
+  content: '\25BC';
+}
+
+/*Slide*/
+.swiper-slide{
+  min-height: 300px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  
+}
+/*-----------------END MAIN PAGE-------------*/

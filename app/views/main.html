@@ -1,34 +1,75 @@
-<div class="jumbotron">
+<!--<div class="jumbotron">
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+</div>-->
+
+<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url('./images/slide_01.gif');"></div>
+            <div class="swiper-slide" style="background-image: url('./images/slide_02.gif');"></div>
+            <div class="swiper-slide" style="background-image: url('./images/slide_03.gif');"></div>
+            <div class="swiper-slide" style="background-image: url('./images/slide_04.gif');"></div>
+            <div class="swiper-slide" style="background-image: url('./images/slide_05.gif');"></div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 
 <h1 class="page-header">Logs:</h1>
-<table st-table="rowCollection" class="table table-striped">
+<table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-hover">
 	<thead>
 	<tr>
-		<th>ID</th>
-		<th>Host</th>
-		<th>Facility</th>
-		<th>Severity</th>
-		<th>Program</th>
-		<th>Message</th>
-		<th>Timestamp</th>
+		<th colspan="7"><input st-search="id" class="form-control" placeholder="global search ..." type="text"/></th>
+	</tr>
+	<tr>
+		<th st-sort="getters.id" st-sort-default="true" st-skip-natural="true">ID</th>
+		<th st-sort="host" st-skip-natural="true">Host</th>
+		<th st-sort="facility" st-skip-natural="true">Facility</th>
+		<th st-sort="severity" st-skip-natural="true">Severity</th>
+		<th st-sort="program" st-skip-natural="true">Program</th>
+		<th st-sort="message" st-skip-natural="true">Message</th>
+		<th st-sort="timestamp" st-skip-natural="true">Timestamp</th>
 	</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="log in logs">
-		<td>{{log.id}}</td>
-		<td>{{log.value.host}}</td>
-		<td>{{log.value.facility}}</td>
-		<td>{{log.value.severity}}</td>
-		<td>{{log.value.program}}</td>
-		<td>{{log.value.msg}}</td>
-		<td>{{log.value.lo}}</td>
+	<tr ng-repeat="row in displayedCollection">
+		<td>{{row.id}}</td>
+		<td>{{row.host}}</td>
+		<td>{{row.facility}}</td>
+		<td>{{row.severity}}</td>
+		<td>{{row.program}}</td>
+		<td>{{row.msg}}</td>
+		<td>{{row.lo | date}}</td>
 	</tr>
 	</tbody>
+	
+		<tfoot>
+			<tr>
+				<td colspan="7" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+		</tfoot>
 </table>
+
+<!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        slidesPerView: 1,
+        paginationClickable: true,
+        loop: true,
+        speed: 150,
+        grabCursor: true,
+    });
+    </script>
