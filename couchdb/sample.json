@@ -1,0 +1,14 @@
+{
+   "_id": "1",
+   "_rev": "1-10be9e1c2967888471ae54f7beff8151",
+   "host": "test",
+   "facility": "23",
+   "severity": "6",
+   "program": "CRON",
+   "msg": "Test",
+   "mne": "None",
+   "eid": "0",
+   "counter": "1",
+   "fo": "1445519583",
+   "lo": "1445519583"
+}

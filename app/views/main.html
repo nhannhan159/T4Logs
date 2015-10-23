@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1>'Allo, 'Allo!</h1>
+  <p class="lead">
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    Always a pleasure scaffolding your apps.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+</div>
+
+<h1 class="page-header">Logs:</h1>
+<table st-table="rowCollection" class="table table-striped">
+	<thead>
+	<tr>
+		<th>ID</th>
+		<th>Host</th>
+		<th>Facility</th>
+		<th>Severity</th>
+		<th>Program</th>
+		<th>Message</th>
+		<th>Timestamp</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="log in logs">
+		<td>{{log.id}}</td>
+		<td>{{log.value.host}}</td>
+		<td>{{log.value.facility}}</td>
+		<td>{{log.value.severity}}</td>
+		<td>{{log.value.program}}</td>
+		<td>{{log.value.msg}}</td>
+		<td>{{log.value.lo}}</td>
+	</tr>
+	</tbody>
+</table>

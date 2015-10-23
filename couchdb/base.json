@@ -1,0 +1,14 @@
+{
+   "_id": "_design/base",
+   "_rev": "2-432c82c03af5173784cbdbd4ede59939",
+   "language": "javascript",
+   "views": {
+       "maxid": {
+           "map": "function(doc){\n    emit(null, parseInt(doc._id.replace(/\\D/g,'')));\n}",
+           "reduce": "function(key, values){\n    var max = 0;\n    for(i in values){\n        if(max < values[i]){\n            max = values[i];\n        }\n    }\n    return max;\n}"
+       },
+       "all": {
+           "map": "function(doc) {\n  emit(doc._id, doc);\n}"
+       }
+   }
+}
