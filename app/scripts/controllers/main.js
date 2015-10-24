@@ -11,7 +11,7 @@ angular.module('t4LogsApp')
   .controller('MainCtrl', function ($scope, $http) {
 
 	  $scope.itemsByPage=5;
-    $http.get('http://127.0.0.1:5984/t4logs/_design/base/_view/all').success(function($data) {
+    $http.get('http://192.168.227.128:82/couchdb/_design/base/_view/all').success(function($data) {
       $scope.rowCollection = [];
       $.each($data.rows,function(key, value){
           $scope.rowCollection.push({
