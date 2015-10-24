@@ -10,8 +10,8 @@
 angular.module('t4LogsApp')
   .controller('MainCtrl', function ($scope, $http) {
 
-	  $scope.itemsByPage=5;
-    $http.get('http://192.168.227.128:82/couchdb/_design/base/_view/all').success(function($data) {
+	$scope.itemsByPage = 5;
+    $http.get('http://192.168.227.128:82/couchdb/t4logs/_design/base/_view/all').success(function($data) {
       $scope.rowCollection = [];
       $.each($data.rows,function(key, value){
           $scope.rowCollection.push({
@@ -27,7 +27,7 @@ angular.module('t4LogsApp')
       $scope.displayedCollection = [].concat($scope.rowCollection);
     });
     
-    $scope.getters={
+    $scope.getters = {
         id: function (value) {
             //this will sort by the length of the first name string
             return value.id.length;
