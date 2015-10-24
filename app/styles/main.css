@@ -88,12 +88,28 @@ body {
   max-width: 900px;
 }
 
+a.navbar-brand {
+    width: 200px;
+    background-image: url('../images/logo.png');
+    background-size: cover;
+    background-position: center center;
+}
+
 /*-----------------MAIN PAGE-------------*/
 /*Table*/
 table[st-table] .thead{
   background-color: dimgrey;
   color: whitesmoke;
 }
+
+th[st-sort]{
+  cursor: pointer;
+}
+
+th[st-sort]:hover{
+  color: brown;
+}
+
 .st-sort-ascent:before{
   content: '\25B2';
 }
@@ -101,6 +117,7 @@ table[st-table] .thead{
 .st-sort-descent:before{
   content: '\25BC';
 }
+
 
 /*Slide*/
 .swiper-slide{
