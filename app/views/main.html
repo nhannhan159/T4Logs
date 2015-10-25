@@ -7,22 +7,6 @@
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>-->
 
-<!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url('./images/slide_01.gif');"></div>
-            <div class="swiper-slide" style="background-image: url('./images/slide_02.gif');"></div>
-            <div class="swiper-slide" style="background-image: url('./images/slide_03.gif');"></div>
-            <div class="swiper-slide" style="background-image: url('./images/slide_04.gif');"></div>
-            <div class="swiper-slide" style="background-image: url('./images/slide_05.gif');"></div>
-        </div>
-        <!-- Add Pagination -->
-        <div class="swiper-pagination"></div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-
 <h1 class="page-header">Logs:</h1>
 <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-hover">
 	<thead>
@@ -61,24 +45,13 @@
 	<tfoot>
 		<tr>
 			<td colspan="7" class="text-center">
-				<div st-pagination="" st-items-by-page="itemsByPage" st-template="/views/pagination.custom.html"></div>
+				<div st-pagination="" st-items-by-page="itemsByPage" st-template="pagination.custom.html"></div>
 			</td>
 		</tr>
 	</tfoot>
 </table>
 
-<!-- Initialize Swiper -->
     <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        slidesPerView: 1,
-        paginationClickable: true,
-        loop: true,
-        speed: 150,
-        grabCursor: true,
-    });
     function expandMessage(element){
         console.log($(element).children());
         $(element).children().toggleClass("expand");
