@@ -84,9 +84,6 @@ body {
 
 /*CUSTOM CSS*/
 /*GENERAL*/
-.container {
-  max-width: 900px;
-}
 
 a.navbar-brand {
     width: 200px;
@@ -118,7 +115,34 @@ th[st-sort]:hover{
   content: '\25BC';
 }
 
+.select-page {
+  width: 50px;
+  text-align: center;
+}
+.pagination li a input {
+  padding: 0;
+  margin: -5px 0;
+}
 
+table {
+    width: 100%;
+}
+
+td {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.expand {
+    white-space: normal;
+}
+
+table[st-table] input[st-search], table[st-table] input[ng-model="itemsByPage"] {
+    display: inline;
+    width: auto;
+}
 /*Slide*/
 .swiper-slide{
   min-height: 300px;

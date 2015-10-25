@@ -27,37 +27,44 @@
 <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-hover">
 	<thead>
 	<tr>
-		<th colspan="7"><input st-search="id" class="form-control" placeholder="global search ..." type="text"/></th>
+		<th colspan="5">
+            <label>Global Search: </label>
+            <input st-search class="input-sm form-control" placeholder="global search ..." type="text"/>
+        </th>
+        <th colspan="1">
+            <label>Items per page: </label>
+            <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched" 
+            name="items" id="items" type="number" ng-model="itemsByPage">
+        </th>
 	</tr>
 	<tr>
-		<th st-sort="getters.id" st-sort-default="true" st-skip-natural="true">ID</th>
-		<th st-sort="host" st-skip-natural="true">Host</th>
-		<th st-sort="facility" st-skip-natural="true">Facility</th>
-		<th st-sort="severity" st-skip-natural="true">Severity</th>
-		<th st-sort="program" st-skip-natural="true">Program</th>
-		<th st-sort="message" st-skip-natural="true">Message</th>
-		<th st-sort="timestamp" st-skip-natural="true">Timestamp</th>
+		<th st-ratio="5" st-sort="getters.id" st-sort-default="true" st-skip-natural="true">ID</th>
+		<th st-ratio="10" st-sort="host" st-skip-natural="true">Host</th>
+		<th st-ratio="5" st-sort="facility" st-skip-natural="true">Facility</th>
+		<th st-ratio="5" st-sort="severity" st-skip-natural="true">Severity</th>
+		<th st-ratio="15" st-sort="program" st-skip-natural="true">Program</th>
+		<th st-ratio="45" st-sort="message" st-skip-natural="true">Message</th>
+		<th st-ratio="15" st-sort="timestamp" st-skip-natural="true">Timestamp</th>
 	</tr>
 	</thead>
 	<tbody>
-	<tr ng-repeat="row in displayedCollection">
-		<td>{{row.id}}</td>
-		<td>{{row.host}}</td>
-		<td>{{row.facility}}</td>
-		<td>{{row.severity}}</td>
-		<td>{{row.program}}</td>
-		<td>{{row.msg}}</td>
-		<td>{{row.lo | date}}</td>
+	<tr ng-repeat="row in displayedCollection" onclick="expandMessage(this);">
+		<td st-ratio="5">{{row.id}}</td>
+		<td st-ratio="10">{{row.host}}</td>
+		<td st-ratio="5">{{row.facility}}</td>
+		<td st-ratio="5">{{row.severity}}</td>
+		<td st-ratio="15">{{row.program}}</td>
+		<td st-ratio="45">{{row.msg}}</td>
+		<td st-ratio="15">{{row.lo | date}}</td>
 	</tr>
 	</tbody>
-	
-		<tfoot>
-			<tr>
-				<td colspan="7" class="text-center">
-					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
-				</td>
-			</tr>
-		</tfoot>
+	<tfoot>
+		<tr>
+			<td colspan="7" class="text-center">
+				<div st-pagination="" st-items-by-page="itemsByPage" st-template="/views/pagination.custom.html"></div>
+			</td>
+		</tr>
+	</tfoot>
 </table>
 
 <!-- Initialize Swiper -->
@@ -72,4 +79,8 @@
         speed: 150,
         grabCursor: true,
     });
+    function expandMessage(element){
+        console.log($(element).children());
+        $(element).children().toggleClass("expand");
+    }
     </script>
