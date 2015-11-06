@@ -1,0 +1,7 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "firebase/php-jwt": "~3.0",
+        "phpmailer/phpmailer": "~5.2"
+    }
+}
