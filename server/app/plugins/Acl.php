@@ -34,7 +34,8 @@ class Acl extends Component
      */
     private $privateResources = array(
         'user-api' => array('getAll', 'getById', 'getRoles', 'create', 'delete', 'changePassword'),
-        'role-api' => array('getAll', 'getUsers', 'create', 'delete', 'assign')
+        'role-api' => array('getAll', 'getUsers', 'create', 'delete', 'assign'),
+        'log-api' => array('getAll')
     );
 
     /**

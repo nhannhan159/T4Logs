@@ -6,7 +6,7 @@ class PermissionRoute extends \Phalcon\Mvc\Router\Group {
     public function initialize() {
 
         // All the routes start with /api/permissions
-        $this->setPrefix('/api/permissions');
+        $this->setPrefix('/permissions');
 
         $this->add('', array(
             'controller' => 'permission-api',

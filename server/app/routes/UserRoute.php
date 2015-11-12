@@ -6,7 +6,7 @@ class UserRoute extends \Phalcon\Mvc\Router\Group {
     public function initialize() {
 
         // All the routes start with /api/user
-        $this->setPrefix('/api/users');
+        $this->setPrefix('/users');
 
         // Add a route to the group
         $this->add('', array(

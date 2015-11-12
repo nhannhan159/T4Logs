@@ -16,6 +16,7 @@ use PhalconSeed\Services\AuthService;
 use PhalconSeed\Services\CommonService;
 use PhalconSeed\Services\RoleService;
 use PhalconSeed\Services\UserService;
+use PhalconSeed\Services\LogService;
 
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -163,4 +164,11 @@ $di->set('userService', function () {
  */
 $di->set('roleService', function () {
     return new RoleService();
+});
+
+/**
+ * Register Log Service
+ */
+$di->set('logService', function () {
+    return new LogService();
 });

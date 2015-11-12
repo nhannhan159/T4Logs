@@ -3,6 +3,7 @@ use PhalconSeed\Routes\AuthRoute;
 use PhalconSeed\Routes\UserRoute;
 use PhalconSeed\Routes\RoleRoute;
 use PhalconSeed\Routes\PermissionRoute;
+use PhalconSeed\Routes\LogRoute;
 
 /*
  * Define custom routes. File gets included in the router service definition.
@@ -20,5 +21,8 @@ $router->mount(new RoleRoute());
 
 // Add the group of permission route to the router
 $router->mount(new PermissionRoute());
+
+// Add the group of log route to the router
+$router->mount(new LogRoute());
 
 return $router;

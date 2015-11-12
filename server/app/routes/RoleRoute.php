@@ -6,7 +6,7 @@ class RoleRoute extends \Phalcon\Mvc\Router\Group {
     public function initialize() {
 
         // All the routes start with /api/role
-        $this->setPrefix('/api/roles');
+        $this->setPrefix('/roles');
 
         $this->add('', array(
             'controller' => 'role-api',

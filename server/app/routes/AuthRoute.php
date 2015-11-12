@@ -6,7 +6,7 @@ class AuthRoute extends \Phalcon\Mvc\Router\Group {
     public function initialize() {
 
         // All the routes start with /api/auth
-        $this->setPrefix('/api/auth');
+        $this->setPrefix('/auth');
 
         $this->add('/login/{method}', array(
             'controller' => 'auth-api',
