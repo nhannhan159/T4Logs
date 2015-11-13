@@ -42,6 +42,7 @@ class AuthApiController extends BaseRestApiController {
                     "message" => 'success log in'
                 ));
                 $response->setHeader(self::HEADER_ACCESS_TOKEN, $responseObject["token"]);
+                $response->setHeader(self::ACCESS_CONTROL_EXPOSE_HEADERS, self::HEADER_ACCESS_TOKEN);
                 return $response;
             }
             $this->actionLogger->info("anonymous: login fail: username = '$username', password = '$password'");

@@ -10,7 +10,9 @@ class LogApiController extends BaseRestApiController {
         try {
             $responseObject = $this->logService->getAll();
             if ($responseObject['statusCode'] == self::STATUS_OK) {
-                return $this->createResponse($responseObject['body'], self::STATUS_OK, '');
+                $response = $this->createResponse($responseObject['body'], self::STATUS_OK, '');
+                $response->setHeader(self::ACCESS_CONTROL_EXPOSE_HEADERS, self::HEADER_ACCESS_TOKEN);
+                return $response;
             }
             return $this->createResponse(self::NO_CONTENT, $responseObject['statusCode']);
 

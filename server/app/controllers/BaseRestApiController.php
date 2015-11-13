@@ -18,6 +18,7 @@ class BaseRestApiController extends \Phalcon\Mvc\Controller {
     const HEADER_ALLOW_HEADERS = "Access-Control-Allow-Headers";
     const HEADER_CONTENT_TYPE = "Content-Type";
     const HEADER_ACCESS_TOKEN = "Access-Token";
+    const ACCESS_CONTROL_EXPOSE_HEADERS = "Access-Control-Expose-Headers";
     const STATUS_OK = 200;
     const STATUS_CREATED = 201;
     const STATUS_NO_CONTENT = 204;
