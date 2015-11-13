@@ -6,7 +6,31 @@
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>-->
-
+<div class="login">
+	<div class="arrow-up"></div>
+	<div class="formholder">
+		<div class="randompad">
+			<fieldset>
+				<label name="email">Email</label>
+				<input type="text" ng-model="loginEmail" />
+				<label name="password">Password</label>
+				<input type="password" ng-model="loginPassword"/>
+				<button ng-click="logIn()">Login</button>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<hr>
+<div class="login">
+	<div class="arrow-up"></div>
+	<div class="formholder">
+		<div class="randompad">
+			<fieldset>
+				<button ng-click="logOut()">Logout</button>
+			</fieldset>
+		</div>
+	</div>
+</div>
 <h1 class="page-header">Logs:</h1>
 <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-hover">
 	<thead>
