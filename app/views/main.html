@@ -6,78 +6,77 @@
   </p>
   <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>-->
-<div class="login">
-	<div class="arrow-up"></div>
-	<div class="formholder">
-		<div class="randompad">
-			<fieldset>
-				<label name="email">Email</label>
-				<input type="text" ng-model="loginEmail" />
-				<label name="password">Password</label>
-				<input type="password" ng-model="loginPassword"/>
-				<button ng-click="logIn()">Login</button>
-			</fieldset>
-		</div>
-	</div>
+<div class="formholder">
+    <form class="form-inline" role="form">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" ng-model="loginEmail">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control"  ng-model="loginPassword">
+        </div>
+        <button class="btn btn-success" ng-click="logIn()">Login</button>
+    </form>
 </div>
-<hr>
-<div class="login">
-	<div class="arrow-up"></div>
-	<div class="formholder">
-		<div class="randompad">
-			<fieldset>
-				<button ng-click="logOut()">Logout</button>
-			</fieldset>
-		</div>
-	</div>
+<div class="formholder hide">
+    <form class="form-inline" role="form">
+        <button class="btn btn-default" ng-click="logOut()">Logout</button>
+    </form>
 </div>
 <h1 class="page-header">Logs:</h1>
 <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-hover">
-	<thead>
-	<tr>
-		<th colspan="5">
+    <thead>
+    <tr>
+        <th colspan="5">
             <label>Global Search: </label>
             <input st-search class="input-sm form-control" placeholder="global search ..." type="text"/>
         </th>
         <th colspan="1">
             <label>Items per page: </label>
-            <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched" 
-            name="items" id="items" type="number" ng-model="itemsByPage">
+            <input class="input-sm form-control ng-valid ng-dirty ng-valid-number ng-touched"
+                   name="items" id="items" type="number" ng-model="itemsByPage">
         </th>
-	</tr>
-	<tr>
-		<th st-ratio="5" st-sort="getters.id" st-sort-default="true" st-skip-natural="true">ID</th>
-		<th st-ratio="10" st-sort="host" st-skip-natural="true">Host</th>
-		<th st-ratio="5" st-sort="facility" st-skip-natural="true">Facility</th>
-		<th st-ratio="5" st-sort="severity" st-skip-natural="true">Severity</th>
-		<th st-ratio="15" st-sort="program" st-skip-natural="true">Program</th>
-		<th st-ratio="45" st-sort="message" st-skip-natural="true">Message</th>
-		<th st-ratio="15" st-sort="timestamp" st-skip-natural="true">Timestamp</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr ng-repeat="row in displayedCollection" onclick="expandMessage(this);">
-		<td st-ratio="5">{{row.id}}</td>
-		<td st-ratio="10">{{row.host}}</td>
-		<td st-ratio="5">{{row.facility}}</td>
-		<td st-ratio="5">{{row.severity}}</td>
-		<td st-ratio="15">{{row.program}}</td>
-		<td st-ratio="45">{{row.msg}}</td>
-		<td st-ratio="15">{{row.lo | date}}</td>
-	</tr>
-	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan="7" class="text-center">
-				<div st-pagination="" st-items-by-page="itemsByPage" st-template="/views/pagination.custom.html"></div>
-			</td>
-		</tr>
-	</tfoot>
+    </tr>
+    <tr>
+        <th st-ratio="5" st-sort="getters.id" st-sort-default="true" st-skip-natural="true">ID</th>
+        <th st-ratio="10" st-sort="host" st-skip-natural="true">Host</th>
+        <th st-ratio="5" st-sort="facility" st-skip-natural="true">Facility</th>
+        <th st-ratio="5" st-sort="severity" st-skip-natural="true">Severity</th>
+        <th st-ratio="15" st-sort="program" st-skip-natural="true">Program</th>
+        <th st-ratio="45" st-sort="message" st-skip-natural="true">Message</th>
+        <th st-ratio="15" st-sort="timestamp" st-skip-natural="true">Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in displayedCollection" onclick="expandMessage(this);">
+        <td st-ratio="5">{{row.id}}</td>
+        <td st-ratio="10">{{row.host}}</td>
+        <td st-ratio="5">{{row.facility}}</td>
+        <td st-ratio="5">{{row.severity}}</td>
+        <td st-ratio="15">{{row.program}}</td>
+        <td st-ratio="45">{{row.msg}}</td>
+        <td st-ratio="15">{{row.lo | date}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="7" class="text-center">
+            <div st-pagination="" st-items-by-page="itemsByPage" st-template="/views/pagination.custom.html"></div>
+        </td>
+    </tr>
+    </tfoot>
 </table>
 
-    <script>
-    function expandMessage(element){
+<script>
+    function expandMessage(element) {
         console.log($(element).children());
         $(element).children().toggleClass("expand");
     }
-    </script>
+    $('button[ng-click="logIn()"]').on('click',function(){
+        $('.formholder').toggleClass('hide');
+    })
+    $('button[ng-click="logOut()"]').on('click',function(){
+        $('.formholder').toggleClass('hide');
+    })
+</script>

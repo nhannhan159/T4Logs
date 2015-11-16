@@ -31,7 +31,6 @@ angular.module('t4LogsApp')
         $scope.loginEmail = "superadmin";
         $scope.loginPassword = "superadmin";
         $scope.logIn = function () {
-            console.log($scope.rowCollection);
             var data = {
                 "username" : $scope.loginEmail,
                 "password" : $scope.loginPassword
@@ -72,8 +71,8 @@ angular.module('t4LogsApp')
 
         //Bind Data to Table
         $scope.bindData = function($data){
+            $scope.rowCollection = [];
             $.each($data.rows, function (key, value) {
-                $scope.rowCollection = [];
                 $scope.rowCollection.push({
                     id: value.value._id,
                     host: value.value.host,
@@ -105,14 +104,12 @@ angular.module('t4LogsApp')
                     "Access-Token" : $scope.accessToken
                 }
             }).success(function(data, status, headers, config){
-                console.log(data)
                 $scope.rowCollection = [];
                 $scope.displayedCollection = [];
             }).error(function(error){
                 console.log(error)
             });
         }
-
     })
     .directive('stRatio', function () {
         return {
